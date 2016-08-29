@@ -1,12 +1,22 @@
 import React from 'react';
 
+// Import react router deps
+import { Router ,browserHistory} from 'react-router';
 import { render } from 'react-dom';
-console.log('----in the bundle ----');
 // Import css
 
 // Import Components
-import router from './routes';
-// import react router deps
+import router from './router';
 import { Provider } from 'react-redux';
 
-render (router,document.getElementById('app'));
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+console.log('---store---',store)
+const app = (
+   <Provider store={configureStore}>
+      {router}
+   </Provider>
+);
+
+render (app,document.getElementById('app'));
