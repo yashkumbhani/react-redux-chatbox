@@ -5,7 +5,7 @@ import  React  from 'react';
 //import components
 
 import App from './containers/App';
-import Chat from './components/Chat';
+import Chat from './containers/ChatContainer';
 
 const routes = (
   <Router history={browserHistory} >

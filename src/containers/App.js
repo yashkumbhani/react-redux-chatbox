@@ -14,11 +14,11 @@ class App extends React.Component {
 App.propTypes = {
   children:  PropTypes.element.isRequired
 };
+
 function mapStateToProps(state) {
   return {
-    data: state.data
+    messages: state.messages
   };
 }
-
 
 export default connect(mapStateToProps)(App);
