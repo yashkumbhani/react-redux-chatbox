@@ -5,11 +5,16 @@ export default function(io) {
     });
 
     socket.on('new message', function(msg) {
-      socket.broadcast.to(msg.channelID).emit('new bc message', msg);
+      console.log('-received message on server ',msg.text)
+      socket.broadcast.to(msg.channelID).emit('new bc message', msg.text);
+
     });
 
     socket.on('join channel', function(channel) {
       socket.join(channel.name);
     });
+
+
+
   });
 }

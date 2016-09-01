@@ -6,3 +6,10 @@ export function addMessage(message) {
     message
   };
 }
+
+export function receiveMessage(message) {
+  return {
+    type: types.RECEIVE_MESSAGE,
+    message
+  };
+}

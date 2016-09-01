@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from '../constants/ActionTypes'
+import { ADD_MESSAGE , RECEIVE_MESSAGE } from '../constants/ActionTypes'
 
 const initialState = {
   loaded: false,
@@ -12,6 +12,13 @@ function messages(state = initialState, action) {
         ...state,
         data: [...state.data, action.message]
       }
+
+    case RECEIVE_MESSAGE :
+    return {
+      ...state,
+      data: [...state.data, action.message]
+    }
+
     default :
         return state;
   }

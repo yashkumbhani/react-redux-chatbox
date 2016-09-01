@@ -1,7 +1,7 @@
 import React, {  PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions/addMessages';
+import * as actionCreators from '../actions/message';
 import io from 'socket.io-client';
 import Chat from '../components/Chat';
 

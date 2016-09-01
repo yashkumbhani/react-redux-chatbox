@@ -20,9 +20,17 @@ class ChatInputBox extends React.Component {
   addMessage(e) {
     if (e.key == 'Enter') {
       e.preventDefault();
+
+      const { socket, activeChannel} = this.props;
       const text = this.state.text.trim();
       this.setState({text: '', typing: false});
+      let newMessage = {
+        channelID: this.props.activeChannel,
+        text: text
+      };
+
       this.props.addMessage(text);
+      socket.emit('new message', newMessage);
   }
 }
 
@@ -42,7 +50,9 @@ class ChatInputBox extends React.Component {
 }
 
 ChatInputBox.propTypes = {
-  addMessage : PropTypes.func.isRequired
+  activeChannel : PropTypes.string,
+  addMessage : PropTypes.func.isRequired,
+  socket : PropTypes.object.isRequired
 };
 
 export default ChatInputBox;
