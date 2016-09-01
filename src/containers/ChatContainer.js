@@ -1,20 +1,18 @@
 import React, {  PropTypes } from 'react';
-import TextBox from '../components/TextBox';
-import Message from '../components/Message';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions/addMessages';
+import io from 'socket.io-client';
+import Chat from '../components/Chat';
+
+const socket = io('http://localhost:3000', { path: '/api/chat' });
+
 
 class ChatContainer extends React.Component {
 
   render() {
     return (
-      <div>
-      {this.props.messages.data.map(function(element,key){
-        return (<Message key={key} text={element}/> );
-      })}
-        <TextBox addMessage={this.props.addMessage} />
-      </div>
+        <Chat { ...this.props} socket={socket} />
     );
   }
 }

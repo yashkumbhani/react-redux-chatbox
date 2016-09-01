@@ -1,6 +1,6 @@
 import React , { PropTypes} from 'react';
 
-class TextBox extends React.Component {
+class ChatInputBox extends React.Component {
 
   constructor() {
     super();
@@ -41,8 +41,8 @@ class TextBox extends React.Component {
   }
 }
 
-TextBox.propTypes = {
+ChatInputBox.propTypes = {
   addMessage : PropTypes.func.isRequired
 };
 
-export default TextBox;
+export default ChatInputBox;
